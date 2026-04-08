@@ -1,48 +1,70 @@
 # Seppmail-Operations-Runbooks
 
-> Operational runbooks and checklists for common SEPPmail tasks.
+> Standard operating procedures, recovery playbooks and change windows for SEPPmail implementations and adjacent platforms.
 
-**Partner resource by Synedat for the SEPPmail ecosystem.**
+This repository is curated by Synedat Group GmbH for the SEPPmail ecosystem. It is intended as an implementation accelerator for customers, partners and delivery teams.
 
 ## Why this repository exists
 
-Runbook-style documentation for backup, restore, failover, Exchange Online validation and day-two operations around SEPPmail.
+This repository is designed to be immediately useful in workshops, pilots, production preparation and knowledge transfer. It combines upstream material with additional operational context, safer examples and governance-oriented documentation so that teams can move from an interesting script to a reviewable implementation asset.
 
-This repository is structured for public consumption and easy discovery across topics such as SEPPmail, Exchange Online, Microsoft 365, Azure, API automation, PowerShell and operational runbooks.
+## Intended audience
 
-## Included content
+Operations, on-call and service transition teams.
 
-- `docs/exchange-online-validation.md`
-- `docs/backup-and-restore.md`
-- `docs/failover-checklist.md`
+## What you will find here
 
-## Quick start
+- `docs/ARCHITECTURE.md` - component view and trust boundaries
+- `docs/RBAC-AND-PERMISSIONS.md` - practical role separation guidance
+- `docs/SECURITY-AND-COMPLIANCE.md` - implementation mapping for ISO 27001, BAIT, DORA, TISAX and NIS2
+- `docs/OPERATIONS.md` - operational lifecycle and evidence ideas
+- `docs/TROUBLESHOOTING.md` - first-line support guidance
+- `docs/SEPPMAIL-REFERENCES.md` - official reference list
+- `docs/images/architecture-overview.svg` - lightweight architecture visual
+- `runbooks/mail-flow-incident.md`
+- `runbooks/certificate-rollover.md`
+- `runbooks/disaster-recovery-exercise.md`
 
-1. Clone the runbooks into your internal operations handbook.
-2. Replace placeholders with tenant, hostname and escalation details.
-3. Validate every step against your current SEPPmail version and support model.
+## Architecture at a glance
+
+```mermaid
+flowchart TD
+    A[Change request] --> B[Pre-checks]
+    B --> C[Implementation]
+    C --> D[Validation]
+    D --> E[Evidence and rollback decision]
+    E --> F[Closure / post-incident review]
+```
+
+## Practical focus
+
+- usable examples rather than empty scaffolding
+- security-conscious defaults and notes on secrets handling
+- architecture and permissions thinking, not just commands
+- audit-friendly documentation structure
+- consistent Synedat branding and discoverability across repositories
+
+## Security and governance themes
+
+This repository intentionally includes implementation notes that align well with:
+- ISO/IEC 27001 style ISMS and control evidence
+- BAIT expectations for banking IT governance and operations
+- DORA-oriented operational resilience thinking
+- TISAX-oriented supplier and security process maturity
+- NIS2-style cyber hygiene and incident preparedness
 
 ## Official SEPPmail references
 
-- [Exchange Online configuration](https://docs.seppmail.com/en/09_ht_mso365_06_exchange-online-configuration.html)
+- [High availability cluster](https://docs.seppmail.com/en/04_com_09_cl_02_high-availability-cluster.html)
 - [High availability and load balancing](https://docs.seppmail.com/en/03_wp_03_sa_06_ha__high-availability-loadbalancing.html)
-- [High-availability cluster](https://docs.seppmail.com/en/04_com_09_cl_02_high-availability-cluster.html)
+- [API functions overview](https://docs.seppmail.com/en/09_ht_admin_api-functions.html)
 
-## Publishing notes
+## Synedat
 
-- keep repository description and topics aligned with `.github/repository-profile.md`
-- add a concise repository subtitle in GitHub
-- use consistent Synedat branding across all public SEPPmail repositories
-- keep customer-specific values out of the public repository
+Synedat Group GmbH works across software engineering, cloud, infrastructure, operations and security-related implementation projects. These repositories are structured to be useful both as public technical starters and as conversation starters for concrete customer delivery.
 
-## About Synedat
+Website: https://www.synedat.com/
 
-Synedat publishes practical, reusable assets around software engineering, IT operations, cloud integration and automation.
+## Upstream and provenance
 
-- Website: https://www.synedat.com/
-- Company profile: https://www.synedat.com/en/
-
-## Partner note
-
-This repository is published by Synedat as a partner-oriented resource for the SEPPmail ecosystem. Product ownership, roadmap and official support remain with SEPPmail.
-
+Where an original SEPPmail community repository was available, its source files were preserved and extended. Original README content, where replaced, was moved to `docs/upstream/ORIGINAL-README.md` for traceability.
