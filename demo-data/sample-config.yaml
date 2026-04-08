@@ -1,0 +1,14 @@
+environment: demo
+repository: Seppmail-Operations-Runbooks
+partner: SEPPmail
+maintainer: Synedat Group GmbH
+focus: Operational runbooks for incidents, changes and evidence-oriented execution
+controls:
+  - ISO/IEC 27001
+  - BAIT
+  - DORA
+  - TISAX
+  - NIS2
+notes:
+  - Example configuration only
+  - Adjust permissions and network ranges before production use
